@@ -5,9 +5,6 @@
     /* background-color: #234; */
     /* border: black; */
 }
-body{
-    overflow-x: hidden;
-}
 ul,
 li {
     list-style-type: none;
