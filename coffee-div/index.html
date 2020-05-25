@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>来一杯咖啡吗</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -35,6 +36,7 @@
         }
 
         .header .a {
+            padding-left: 90px;
             text-align: center;
             vertical-align: middle;
             padding-bottom: 10px;
@@ -63,13 +65,14 @@
         .bodyer .a .active {
             width:100%;
             margin-top: -14px;
+            /* top:30px; */
             /* display: table; */
-            position: fixed;
+            /* position: fixed; */
             
         }
         .bodyer .a .active li{
             /* position: relative; */
-            width:14.8%;
+            width:100%;
             /* border-bottom: black solid 2px; */
             border-top: black solid 2px;
 
@@ -257,4 +260,20 @@
         </div>
     </div>
 </body>
+<script>
+        $(document).ready(function () {
+        $(window).scroll(function (event) {
+            var sTop = $(window).scrollTop();
+            if (sTop >= 75) {
+                
+                $('.active').css('position', 'fixed').css('margin-top', '-84px');
+                $('.active li').css('width', '14.8%')
+            }
+            else {
+                $('.active').css('position', '').css('margin-top', '-14px');
+                $('.active li').css('width', '100%')
+            }
+        })
+    });
+</script>
 </html>
