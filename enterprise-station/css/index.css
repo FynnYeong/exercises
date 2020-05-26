@@ -118,7 +118,14 @@ a:active {
     width: 192px;
     margin: 4px;
 }
-
+.content .row li img:hover {
+    width: 230px;
+    /* overflow: hidden; */
+    position: absolute;
+    margin-left: -15px;
+    margin-top: -8px;
+    z-index: 2;
+}
 .content .row li .a {
     text-align: center;
     position: relative;
