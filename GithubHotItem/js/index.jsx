@@ -78,7 +78,8 @@ class App extends React.Component {
         // console.log( { url } )
         this.setState({
             caseArr:[],
-            loading: true
+            loading: true,
+            page: 1
         })
         try {
             const res = await axios.get(url)
