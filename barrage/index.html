@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弹幕墙</title>
+    <style>
+        body{
+            overflow-x:hidden;
+        }
+        .wall{
+            width: 100%;
+            height: 630px;
+            background-color: #e8e8e8;
+            box-shadow:5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+            /* overflow:visible; */
+        }
+        .console {
+            /* position:absolute; */
+            /* bottom: 60px; */
+            margin-top: 20px;
+            margin-left: 42%;
+        }
+        .console input{
+            width: 300px;
+            height: 20px;
+            margin-left: -50px;
+        }
+        .console button{
+            width: 100px;
+            height: 30px;
+            margin-top: 10px;
+        }
+        .ndiv{
+            position: absolute;
+            left:100%;
+            white-space: nowrap;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="wall">
+        
+    </div>
+    <div class="console">
+        <input type="text" name="" class="ivaule">
+        <br>
+        <button class="btn1">发射</button>
+        <button class="btn2">清屏</button>
+    </div>
+</body>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        function fire(){
+            // 预设随机数
+            var time = Math.random()*2000+3000;
+			var c1 = Math.floor(Math.random()*256);
+			var c2 = Math.floor(Math.random()*256);
+			var c3 = Math.floor(Math.random()*256);
+			var icolor =c1.toString(16)+c2.toString(16)+c3.toString(16);
+            var fsize=Math.random()*20+10;
+            var ihight=Math.random()*(600)
+            var ivaule= $(".ivaule").val(); 
+
+            var newdiv=$('<div class="ndiv">'+ivaule+'</div>')
+            $('.wall').append(newdiv);
+            newdiv.css('color','#'+icolor)
+            newdiv.css('font-size',fsize+'px')
+            newdiv.css('top',ihight+'px')
+            $('.ndiv').animate({
+                left:0
+            },time,"linear",function(){
+                this.remove();
+            })
+        }   
+        $('.btn1').click(function(){
+            fire();
+            $(".ivaule").val("");
+        })
+        $('.btn2').click(function(){
+            $('.wall').empty();
+        })
+    })
+</script>
+</html>
