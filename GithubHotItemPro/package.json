@@ -6,8 +6,7 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack-dev-server",
-    "eslint": "eslint --fix src/",
-    "deploy":"gh-pages -d build"
+    "eslint": "eslint --fix src/"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
