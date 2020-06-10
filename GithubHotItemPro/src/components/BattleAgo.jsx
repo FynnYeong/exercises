@@ -1,19 +1,21 @@
 import React from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWindowClose, faPeopleArrows, faBalanceScale, faTrophy } from '@fortawesome/free-solid-svg-icons';
+import { faWindowClose, faSpinner, faPeopleArrows, faBalanceScale, faTrophy } from '@fortawesome/free-solid-svg-icons';
 import axios from "axios"
 
 export default class BatteAgo extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       userName1: "",
       userName2: "",
       userItem1: [],
       userItem2: [],
       oneKey: false,
-      twoKey: false
+      twoKey: false,
+      loadKey1:false,
+      loadKey2:false
     }
   }
 
@@ -36,12 +38,16 @@ export default class BatteAgo extends React.Component {
       alert("内容不能为空")
       return;
     }
+    this.setState({
+      loadKey1: true
+    })
     await axios.get(`https://api.github.com/search/repositories?q=${this.state.userName1}&order=desc&sort=stars`)
       .then(res => {
-        console.log("数据1",res);
+        console.log("数据1", res);
         this.setState({
           userItem1: res.data.items[0],
-          oneKey: true
+          oneKey: true,
+          loadKey1:false
         })
       })
       .catch(err => {
@@ -57,11 +63,15 @@ export default class BatteAgo extends React.Component {
       alert("内容不能为空")
       return;
     }
+    this.setState({
+      loadKey2: true
+    })
     await axios.get(`https://api.github.com/search/repositories?q=${this.state.userName2}&order=desc&sort=stars`)
       .then(res => {
         this.setState({
           userItem2: res.data.items[0],
-          twoKey: true
+          twoKey: true,
+          loadKey2:false
         })
       })
       .catch(err => {
@@ -114,31 +124,44 @@ export default class BatteAgo extends React.Component {
           <div className="player1">
             {this.state.oneKey ? (
               <div className="submit1">
-                <img src={this.state.userItem1 ? `${this.state.userItem1.owner.avatar_url}?size=200` : `https://github.com/${this.state.userName1}.png?size=200`} alt="Null" />
+                <img src={0 ? `${this.state.userItem1.owner.avatar_url}?size=200` : `https://github.com/${this.state.userName1}.png?size=200`} alt="Null" />
                 <span>{this.state.userName1}</span>
                 <FontAwesomeIcon className="b" icon={faWindowClose} onClick={this.selKey1} />
               </div>
             ) : (
-              <div className="input">
-                <h4>palyers one</h4>
-                <input type="text" placeholder="Github UserName" value={this.state.userName1} onChange={this.userChange} onKeyDown={() => { if (window.event.keyCode === 13) { this.userSubmit() } }} />
-                <button type="button" onClick={this.userSubmit}>submit</button>
-              </div>
+                <div className="input">
+                  <h4>palyers one</h4>
+                  <input type="text" placeholder="Github UserName" value={this.state.userName1} onChange={this.userChange} onKeyDown={() => { if (window.event.keyCode === 13) { this.userSubmit() } }} />
+                  {/* <button type="button" onClick={this.userSubmit}>submit</button> */}
+                  {this.state.userName1!=""?<button type="button" onClick={this.userSubmit}>submit</button>:<button type="button" disabled="disabled" style={{backgroundColor:"#e8e2ea"}}>请输入值</button>}
+                  {this.state.loadKey1? (
+                    <h5 style={{ textAlign: 'center' }} className="loading"><FontAwesomeIcon icon={faSpinner} spin style={{ fontSize: '30px' }} />
+                      <span className="sr-only">Loading...</span>
+                    </h5>
+                  ) : <span />}
+                </div>
+
               )}
           </div>
           <div className="player2">
             {this.state.twoKey ? (
               <div className="submit1">
-                <img src={this.state.userItem2 ? `${this.state.userItem2.owner.avatar_url}?size=200` : `https://github.com/${this.state.userName2}.png?size=200`} alt="Null" />
+                <img src={0 ? `${this.state.userItem2.owner.avatar_url}?size=200` : `https://github.com/${this.state.userName2}.png?size=200`} alt="API出了点问题" />
                 <span>{this.state.userName2}</span>
                 <FontAwesomeIcon className="b" icon={faWindowClose} onClick={this.selKey2} />
               </div>
             ) : (
-              <div className="input">
-                <h4>palyers one</h4>
-                <input type="text" placeholder="Github UserName" value={this.state.userName2} onChange={this.userChange2} onKeyDown={() => { if (window.event.keyCode === 13) { this.twoSubmit() } }} />
-                <button type="button" onClick={this.twoSubmit}>submit</button>
-              </div>
+                <div className="input">
+                  <h4>palyers one</h4>
+                  <input type="text" placeholder="Github UserName" value={this.state.userName2} onChange={this.userChange2} onKeyDown={() => { if (window.event.keyCode === 13) { this.twoSubmit() } }} />
+                  {/* <button type="button" onClick={this.twoSubmit}>submit</button> */}
+                  {this.state.userName2!=""?<button type="button" onClick={this.twoSubmit}>submit</button>:<button disabled="disabled" type="button" style={{backgroundColor:"#e8e2ea"}}>请输入值</button>}
+                  {this.state.loadKey2? (
+                    <h5 style={{ textAlign: 'center' }} className="loading"><FontAwesomeIcon icon={faSpinner} spin style={{ fontSize: '30px' }} />
+                      <span className="sr-only">Loading...</span>
+                    </h5>
+                  ) : <span />}
+                </div>
               )}
           </div>
         </div>

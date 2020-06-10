@@ -75,15 +75,15 @@ export default class Popoular extends React.Component {
       loading: true,
       page: 1,
     });
-    try {
-      const res = await axios.get(url);
+    await axios.get(url)
+    .then(res => {
       this.setState({
         caseArr: res.data.items,
       });
-      // console.log("ccc",this.state)
-    } catch (e) {
-      console.log(e);
-    }
+    })
+    .catch(err => {
+      console.error(err);
+    })
     this.setState({
       loading: false,
     });

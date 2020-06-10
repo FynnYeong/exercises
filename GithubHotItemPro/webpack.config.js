@@ -9,7 +9,7 @@ module.exports = {
     entry: "./src/index.js",
     output: {
         path: path.resolve("dist"),
-        filename: "bundle.js"
+        filename: "[name].[hash:8].js"
     },
     devtool: 'cheap-module-source-map',
     resolve: {
@@ -57,12 +57,12 @@ module.exports = {
                     }
                 ]
             },
-            {
-                test: /\.(m?js|jsx)$/,
-                exclude: /node_modules/,
-                enforce: "pre",
-                use: "eslint-loader"
-            },
+            // {
+            //     test: /\.(m?js|jsx)$/,
+            //     exclude: /node_modules/,
+            //     enforce: "pre",
+            //     use: "eslint-loader"
+            // },
             {
                 test: /\.(m?js|jsx)$/,
                 exclude: /(node_modules|bower_components)/,
@@ -80,9 +80,22 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: "./public/index.html",
-            hash: true
+            hash: true,
+            filename: "[name].[hash:8].html",
+            minify: {
+            removeComments: true,
+            collapseWhitespace: true,
+            removeRedundantAttributes: true,
+            useShortDoctype: true,
+            removeEmptyAttributes: true,
+            removeStyleLinkTypeAttributes: true,
+            keepClosingSlash: true,
+            minifyJS: true,
+            minifyCSS: true,
+            minifyURLs: true
+            }
         }),
-        new ExtractText('./style.css'),
+        new ExtractText('./[name].[hash:8].css'),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
 
