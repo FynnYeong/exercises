@@ -53,16 +53,12 @@ class Content extends React.Component {
             boxSizing: 'border-box',
             fontSize: '20px',
             fontWeight: 'bold',
-            marginBottom:"15px",
-            // height:'4%',
-            // overflow: "hidden"
-            
         }
         const list = this.props.msg.map((item, index) =>
             <li key={index} style={{width: '22%',backgroundColor:' #efefef',marginBottom: '20px',textAlign: 'center',borderRadius:' 5%'}}>
                 <h1 style={{ color: "#2c95b6"}}>#{index + 1}</h1>
                 <h2 style={{ height:'240px'}}><img width='70%' src={item.owner.avatar_url } alt="!" /></h2>
-                <h2 style={{height:'60px',width:'308px',color: "#c72f32",display:"table-cell",verticalAlign:"middle"}} >{item.name}</h2>
+                <h2 style={{ color: "#c72f32",overflow: "hidden" }} >{item.name}</h2>
                 <ul style={{marginTop: '20px'}}>
                     <li style={LiSyle}><i style={{ color: "#0a84ff",overflow: "hidden"}} className="fa fa-user-circle-o"></i>&nbsp;{item.name}</li>
                     <li style={LiSyle}>&nbsp;<i style={{ color: "#12ba1d" }} className="fa fa-code-fork"></i>&nbsp;{item.forks_count}</li>
@@ -198,8 +194,9 @@ class App extends React.Component {
             let scrollHeight = document.documentElement.scrollHeight
             // console.log(scrollHeight)
             let scrollTop = document.documentElement.scrollTop;
-            // console.log(scrollTop)
-            if (scrollTop + clientHeight === scrollHeight && this.state.btn) {
+            console.log('a',scrollTop + clientHeight)
+            console.log('b',scrollHeight)
+            if (scrollTop + clientHeight >= scrollHeight && this.state.btn) {
                 console.log("达成")
                 let newPage = this.state.page + 1
                 this.setState({ page: newPage + 1, btn: false })
