@@ -196,7 +196,8 @@ class App extends React.Component {
             let scrollTop = document.documentElement.scrollTop;
             console.log('a',scrollTop + clientHeight)
             console.log('b',scrollHeight)
-            if (scrollTop + clientHeight >= scrollHeight && this.state.btn) {
+            console.log('c',this.state.btn)
+            if (scrollTop + clientHeight >= scrollHeight-5 && this.state.btn) {
                 console.log("达成")
                 let newPage = this.state.page + 1
                 this.setState({ page: newPage + 1, btn: false })
