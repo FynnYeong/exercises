@@ -8,7 +8,7 @@ module.exports = {
     entry: "./src/index.js",
     output: {
         path: path.resolve("dist"),
-        filename: "bundle.js"
+        filename: "[hash:8].js"
     },
     devtool: 'cheap-module-source-map',
     resolve: {
@@ -93,7 +93,7 @@ module.exports = {
                 minifyURLs: true,
                 },
         }),
-        new ExtractText('./style.css'),
+        new ExtractText('./[hash:8].css'),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
 
@@ -101,7 +101,7 @@ module.exports = {
     devServer: {
         port: 3000,
         open: true,
-        // hot:true,       
+        hot:true,       
         overlay: true
         // hotOnly: true
     },

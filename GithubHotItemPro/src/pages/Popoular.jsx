@@ -18,7 +18,7 @@ export default class Popoular extends React.Component {
 
   componentDidMount() {
     if (this.props.match.params.src) {
-      console.log("达成", this.props.match.params.src);
+      // console.log("达成", this.props.match.params.src);
       this.getNewurl()
     } else {
       this.getList();
@@ -30,13 +30,13 @@ export default class Popoular extends React.Component {
       const { scrollHeight } = document.documentElement;
       // console.log(scrollHeight)
       const { scrollTop } = document.documentElement;
-      console.log("a",scrollTop + clientHeight === scrollHeight)
+      // console.log("a",scrollTop + clientHeight === scrollHeight)
       // console.log("a-1",scrollTop + clientHeight)
       // console.log("a-2",scrollHeight)
-      console.log("b",this.state.btn)
-      console.log("b",this.state.page)
+      // console.log("b",this.state.btn)
+      // console.log("b",this.state.page)
       if (scrollTop + clientHeight >= scrollHeight && this.state.btn) {
-        console.log('达成');
+        // console.log('达成');
         const { page}=this.state
         const newPage = page + 1;
         // this.setState(prve => ({ page: prve.page + 1, btn: false }));
@@ -92,19 +92,19 @@ export default class Popoular extends React.Component {
   nextPage = async (page) => {
     const { url,caseArr} = this.state;
     const nextUrl = `${url}&page=${page}`;
-    console.log("地址", nextUrl);
+    // console.log("地址", nextUrl);
     this.setState({
       loading: true,
     });
     await axios.get(nextUrl)
       .then(res => {
-        console.log("数据1",caseArr);
+        // console.log("数据1",caseArr);
         this.setState({
           caseArr:[...caseArr,...res.data.items],
           loading: false,
           btn: true,
         });
-        console.log("这是啥",this.state.caseArr)
+        // console.log("这是啥",this.state.caseArr)
       })
       .catch(err => {
         console.error(err);
@@ -119,7 +119,7 @@ export default class Popoular extends React.Component {
       old: this.props.match.params.key
     });
     this.getList();
-    console.log("ccc", this.props)
+    // console.log("ccc", this.props)
   }
 
   render() {

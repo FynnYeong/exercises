@@ -36,7 +36,7 @@ export default class BatteAfter extends React.Component {
       <ul className="result">
         <li style={{ width: '22%', backgroundColor: ' #efefef', marginBottom: '20px', textAlign: 'center', borderRadius: ' 5%' }}>
           <h1 style={{ color: '#2c95b6' }}>{one}</h1>
-          <h2 style={{ height: '210px' }}><img width="70%" src={this.props.oneDate?this.props.oneDate.owner.avatar_url:"./img/1.png"} alt="糟糕，API出了点问题" /></h2>
+          <h2 style={{ height: '210px' }}><img height="100%" src={this.props.oneDate?this.props.oneDate.owner.avatar_url:"./img/1.png"} alt="糟糕，API出了点问题" /></h2>
           <h2 style={{marginTop: '30px',height: '60px', width: '308px', color: '#c72f32', display: 'table-cell', verticalAlign: 'middle' }}>{this.props.name1}
           </h2>
           <ul style={{ marginTop: '10px' }}>
@@ -60,8 +60,8 @@ export default class BatteAfter extends React.Component {
         </li>
         <li style={{ width: '22%', backgroundColor: ' #efefef', marginBottom: '20px', textAlign: 'center', borderRadius: ' 5%' }}>
           <h1 style={{ color: '#2c95b6' }}>{two}</h1>
-          <h2 style={{ height: '210px' }}><img width="70%" src={this.props.twoDate?this.props.twoDate.owner.avatar_url:"./img/1.png"} alt="糟糕，API出了点问题" /></h2>
-          <h2 style={{ marginTop: '30px', height: '60px', width: '308px', color: '#c72f32', display: 'table-cell', verticalAlign: 'middle' }}>{this.props.name2}
+          <h2 style={{ height: '210px' }}><img height="100%" src={this.props.twoDate?this.props.twoDate.owner.avatar_url:"./img/1.png"} alt="糟糕，API出了点问题" /></h2>
+          <h2 style={{ marginTop: '70px', height: '60px', width: '308px', color: '#c72f32', display: 'table-cell', verticalAlign: 'middle' }}>{this.props.name2}
           </h2>
           <ul style={{ marginTop: '10px' }}>
             <li style={LiSyle}>

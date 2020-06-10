@@ -17,14 +17,6 @@ export default class Battle extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.ge()
-  }
-
-  ge = () => {
-    console.log("天啊",this.props);
-  }
-
   getData = (data) => {
     const { userName1, userName2, userItem1, userItem2, oneKey, twoKey } = data
     this.setState({
