@@ -25,7 +25,7 @@ class App extends React.Component {
       <Router>
         <div className="header">
           <NavLink onClick={()=>{this.setState({linkKey:0});sessionStorage.setItem("linKey","0" )}} className={`a ${this.state.linkKey===0?"active2":null}`} to="/popoular">Popoular</NavLink>
-          <NavLink onClick={()=>{this.setState({linkKey:1});sessionStorage.setItem("linKey","1" )}} className={`a ${this.state.linkKey===1?"active2":null}`} to="/battle/0">Battle</NavLink>
+          <NavLink onClick={()=>{this.setState({linkKey:1});sessionStorage.setItem("linKey","1" );sessionStorage.removeItem("clicker")}} className={`a ${this.state.linkKey===1?"active2":null}`} to="/battle/0">Battle</NavLink>
         </div>
         
         {/* <Redirect path="/" to="/popoular" /> */}

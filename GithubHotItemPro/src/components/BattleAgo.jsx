@@ -15,7 +15,9 @@ export default class BatteAgo extends React.Component {
       oneKey: 0,
       twoKey: 0,
       loadKey1:false,
-      loadKey2:false
+      loadKey2:false,
+      bKey1:1,
+      bKey2:1
     }
   }
 
@@ -39,7 +41,8 @@ export default class BatteAgo extends React.Component {
       return;
     }
     this.setState({
-      loadKey1: true
+      loadKey1: true,
+      bKey1:0
     })
     await axios.get(`https://api.github.com/search/repositories?q=${this.state.userName1}&order=desc&sort=stars`)
       .then(res => {
@@ -47,7 +50,8 @@ export default class BatteAgo extends React.Component {
         this.setState({
           userItem1: res.data.items[0],
           oneKey: 1,
-          loadKey1:false
+          loadKey1:false,
+          bKey1:1
         })
       })
       .catch(err => {
@@ -73,14 +77,16 @@ export default class BatteAgo extends React.Component {
       return;
     }
     this.setState({
-      loadKey2: true
+      loadKey2: true,
+      bKey2:0
     })
     await axios.get(`https://api.github.com/search/repositories?q=${this.state.userName2}&order=desc&sort=stars`)
       .then(res => {
         this.setState({
           userItem2: res.data.items[0],
           twoKey: 1,
-          loadKey2:false
+          loadKey2:false,
+          bKey2:1
         })
       })
       .catch(err => {
@@ -154,7 +160,7 @@ export default class BatteAgo extends React.Component {
                 <h4>palyers one</h4>
                 <input type="text" placeholder="Github UserName" value={this.state.userName1} onChange={this.userChange} onKeyDown={() => { if (window.event.keyCode === 13) { this.userSubmit() } }} />
                 {/* <button type="button" onClick={this.userSubmit}>submit</button> */}
-                {this.state.userName1!==""?<button type="button" onClick={this.userSubmit}>submit</button>:<button type="button" disabled="disabled" style={{backgroundColor:"#e8e2ea"}}>请输入值</button>}
+                {this.state.userName1!==""&&this.state.bKey1?<button type="button" onClick={this.userSubmit}>submit</button>:<button type="button" disabled="disabled" style={{backgroundColor:"#e8e2ea"}}>.....</button>}
                 {this.state.loadKey1? (
                   <h5 style={{ textAlign: 'center' }} className="loading"><FontAwesomeIcon icon={faSpinner} spin style={{ fontSize: '30px' }} />
                     <span className="sr-only">Loading...</span>
@@ -175,7 +181,7 @@ export default class BatteAgo extends React.Component {
                 <h4>palyers one</h4>
                 <input type="text" placeholder="Github UserName" value={this.state.userName2} onChange={this.userChange2} onKeyDown={() => { if (window.event.keyCode === 13) { this.twoSubmit() } }} />
                 {/* <button type="button" onClick={this.twoSubmit}>submit</button> */}
-                {this.state.userName2!==""?<button type="button" onClick={this.twoSubmit}>submit</button>:<button disabled="disabled" type="button" style={{backgroundColor:"#e8e2ea"}}>请输入值</button>}
+                {this.state.userName2!==""&&this.state.bKey2?<button type="button" onClick={this.twoSubmit}>submit</button>:<button disabled="disabled" type="button" style={{backgroundColor:"#e8e2ea"}}>.....</button>}
                 {this.state.loadKey2? (
                   <h5 style={{ textAlign: 'center' }} className="loading"><FontAwesomeIcon icon={faSpinner} spin style={{ fontSize: '30px' }} />
                     <span className="sr-only">Loading...</span>
