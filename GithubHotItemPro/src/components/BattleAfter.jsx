@@ -21,8 +21,8 @@ export default class BatteAfter extends React.Component {
     let one = "";
     let two = "";
     const win = () => {
-      if (this.props.oneDate && this.props.twoDate) {
-        if (this.props.oneDate.stargazers_count > this.props.twoDate.stargazers_count) {
+      if (parseInt(sessionStorage.getItem("stargazers_count1"),10)&&parseInt(sessionStorage.getItem("stargazers_count2"),10)) {
+        if (parseInt(sessionStorage.getItem("stargazers_count1"),10) > parseInt(sessionStorage.getItem("stargazers_count2"),10)) {
           one = "Winning"
           two = "Failed"
         } else {
@@ -36,54 +36,53 @@ export default class BatteAfter extends React.Component {
       <ul className="result">
         <li style={{ width: '22%', backgroundColor: ' #efefef', marginBottom: '20px', textAlign: 'center', borderRadius: ' 5%' }}>
           <h1 style={{ color: '#2c95b6' }}>{one}</h1>
-          <h2 style={{ height: '210px' }}><img height="100%" src={this.props.oneDate?this.props.oneDate.owner.avatar_url:"./img/1.png"} alt="糟糕，API出了点问题" /></h2>
-          <h2 style={{marginTop: '30px',height: '60px', width: '308px', color: '#c72f32', display: 'table-cell', verticalAlign: 'middle' }}>{this.props.name1}
+          <h2 style={{ height: '210px' }}><img height="100%" src={1?`https://github.com/${sessionStorage.getItem("name1")}.png?size=200` : "./img/1.png"} alt="糟糕，API出了点问题" /></h2>
+          <h2 style={{ marginTop: '30px', height: '60px', width: '308px', color: '#c72f32', display: 'table-cell', verticalAlign: 'middle' }}>{sessionStorage.getItem("name1")}
           </h2>
           <ul style={{ marginTop: '10px' }}>
             <li style={LiSyle}>
               <FontAwesomeIcon icon={faUserCircle} style={{ color: '#0a84ff', overflow: 'hidden' }} />
-              &nbsp;{this.props.oneDate ? this.props.oneDate.name : "稍等哈，马上就加载出来"}
+              &nbsp;{sessionStorage.getItem("name13") ? sessionStorage.getItem("name13") : "稍等哈，马上就加载出来"}
             </li>
             <li style={LiSyle}>
               <FontAwesomeIcon icon={faShareAlt} style={{ color: '#12ba1d' }} />
-              &nbsp; {this.props.oneDate ? this.props.oneDate.forks_count : "稍等哈，马上就加载出来"}
+              &nbsp; {sessionStorage.getItem("forks_count1") ? sessionStorage.getItem("forks_count1") : "稍等哈，马上就加载出来"}
             </li>
             <li style={LiSyle}>
               <FontAwesomeIcon icon={faStar} style={{ color: '#86c5f4' }} />
-              &nbsp;{this.props.oneDate ? this.props.oneDate.stargazers_count : "稍等哈，马上就加载出来"}
+              &nbsp;{sessionStorage.getItem("stargazers_count1") ? sessionStorage.getItem("stargazers_count1") : "稍等哈，马上就加载出来"}
             </li>
             <li style={LiSyle}>
               <FontAwesomeIcon icon={faExclamationTriangle} style={{ color: '#f09fa6' }} />
-              &nbsp;{this.props.oneDate ? this.props.oneDate.open_issues_count : "稍等哈，马上就加载出来"}
+              &nbsp;{sessionStorage.getItem("open_issues_count1") ? sessionStorage.getItem("open_issues_count1") : "稍等哈，马上就加载出来"}
             </li>
           </ul>
         </li>
         <li style={{ width: '22%', backgroundColor: ' #efefef', marginBottom: '20px', textAlign: 'center', borderRadius: ' 5%' }}>
           <h1 style={{ color: '#2c95b6' }}>{two}</h1>
-          <h2 style={{ height: '210px' }}><img height="100%" src={this.props.twoDate?this.props.twoDate.owner.avatar_url:"./img/1.png"} alt="糟糕，API出了点问题" /></h2>
-          <h2 style={{ marginTop: '70px', height: '60px', width: '308px', color: '#c72f32', display: 'table-cell', verticalAlign: 'middle' }}>{this.props.name2}
+          <h2 style={{ height: '210px' }}><img height="100%" src={1?`https://github.com/${sessionStorage.getItem("name2")}.png?size=200` : "./img/1.png"} alt="糟糕，API出了点问题" /></h2>
+          <h2 style={{ marginTop: '30px', height: '60px', width: '308px', color: '#c72f32', display: 'table-cell', verticalAlign: 'middle' }}>{sessionStorage.getItem("name2")}
           </h2>
           <ul style={{ marginTop: '10px' }}>
             <li style={LiSyle}>
               <FontAwesomeIcon icon={faUserCircle} style={{ color: '#0a84ff', overflow: 'hidden' }} />
-              &nbsp;{this.props.oneDate ? this.props.twoDate.name : "稍等哈，马上就加载出来"}
+              &nbsp;{sessionStorage.getItem("name23") ? sessionStorage.getItem("name23") : "稍等哈，马上就加载出来"}
             </li>
             <li style={LiSyle}>
               <FontAwesomeIcon icon={faShareAlt} style={{ color: '#12ba1d' }} />
-              &nbsp; {this.props.oneDate ? this.props.twoDate.forks_count : "稍等哈，马上就加载出来"}
+              &nbsp; {sessionStorage.getItem("forks_count2") ? sessionStorage.getItem("forks_count2") : "稍等哈，马上就加载出来"}
             </li>
             <li style={LiSyle}>
               <FontAwesomeIcon icon={faStar} style={{ color: '#86c5f4' }} />
-              &nbsp;{this.props.oneDate ? this.props.twoDate.stargazers_count : "稍等哈，马上就加载出来"}
+              &nbsp;{sessionStorage.getItem("stargazers_count2") ? sessionStorage.getItem("stargazers_count2") : "稍等哈，马上就加载出来"}
             </li>
             <li style={LiSyle}>
               <FontAwesomeIcon icon={faExclamationTriangle} style={{ color: '#f09fa6' }} />
-              &nbsp;{this.props.oneDate ? this.props.twoDate.open_issues_count : "稍等哈，马上就加载出来"}
+              &nbsp;{sessionStorage.getItem("open_issues_count2") ? sessionStorage.getItem("open_issues_count2") : "稍等哈，马上就加载出来"}
             </li>
           </ul>
         </li>
       </ul>
-
     )
   }
 }

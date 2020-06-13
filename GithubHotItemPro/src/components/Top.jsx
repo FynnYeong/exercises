@@ -17,12 +17,14 @@ export default class Top extends React.Component {
       ];
     }
 
-    // componentDidMount() {
-    //   console.log("达777",this.props.old);
-    //   this.setState({
-    //     clicker: this.props.old+2
-    //   });
-    // }
+    componentDidMount() {
+      if(sessionStorage.getItem("clicker")){
+        const a=parseInt(sessionStorage.getItem("clicker"),10)
+        this.setState({
+          clicker:a
+        });
+      }
+    }
 
     handleClick = (ev) => {
       // https://api.github.com/search/repositories?q=stars:
@@ -31,10 +33,13 @@ export default class Top extends React.Component {
     }
   
     changeVul = (index) => {
+      sessionStorage.setItem("clicker",index)
+      const a=sessionStorage.getItem("clicker")
+      console.log("aaa",a);
+      
       this.setState({
-        clicker: index,
+        clicker:index,
       });
-      // console.log(this.state.clicker);
     }
   
     render() {

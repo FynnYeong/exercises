@@ -12,8 +12,8 @@ export default class BatteAgo extends React.Component {
       userName2: "",
       userItem1: [],
       userItem2: [],
-      oneKey: false,
-      twoKey: false,
+      oneKey: 0,
+      twoKey: 0,
       loadKey1:false,
       loadKey2:false
     }
@@ -46,16 +46,25 @@ export default class BatteAgo extends React.Component {
         // console.log("数据1", res);
         this.setState({
           userItem1: res.data.items[0],
-          oneKey: true,
+          oneKey: 1,
           loadKey1:false
         })
       })
       .catch(err => {
         console.error(err);
       })
-    const userData = this.state
-    this.props.getChildData(userData)
-
+    const userData = this.state.userItem1
+    const uData = this.state
+    if(userData){
+      // sessionStorage.setItem("avatar_url1",userData.owner.avatar_url );
+      sessionStorage.setItem("forks_count1",userData.forks_count );
+      sessionStorage.setItem("stargazers_count1",userData.stargazers_count );
+      sessionStorage.setItem("open_issues_count1",userData.open_issues_count );
+      sessionStorage.setItem("name1",uData.userName1  );
+      sessionStorage.setItem("name13",userData.name );
+    }
+    sessionStorage.setItem("oneKey","1"  )
+    this.props.getChildData(uData)
   }
 
   twoSubmit = async () => {
@@ -70,15 +79,24 @@ export default class BatteAgo extends React.Component {
       .then(res => {
         this.setState({
           userItem2: res.data.items[0],
-          twoKey: true,
+          twoKey: 1,
           loadKey2:false
         })
       })
       .catch(err => {
         console.error(err);
       })
-    const userData = this.state
-    this.props.getChildData(userData)
+    const userData = this.state.userItem2
+    const uData = this.state
+    if(userData){
+      sessionStorage.setItem("forks_count2",userData.forks_count );
+      sessionStorage.setItem("stargazers_count2",userData.stargazers_count  );
+      sessionStorage.setItem("open_issues_count2",userData.open_issues_count );
+      sessionStorage.setItem("name2",uData.userName2 );
+      sessionStorage.setItem("name23",userData.name );
+    }
+    sessionStorage.setItem("twoKey","1" )
+    this.props.getChildData(uData)
   }
 
   selKey1 = async () => {
@@ -88,6 +106,8 @@ export default class BatteAgo extends React.Component {
     })
     const userData = this.state
     this.props.getChildData(userData)
+    sessionStorage.setItem("oneKey","0"  )
+
   }
 
   selKey2 = async () => {
@@ -97,6 +117,7 @@ export default class BatteAgo extends React.Component {
     })
     const userData = this.state
     this.props.getChildData(userData)
+    sessionStorage.setItem("twoKey","0"  )
   }
 
   render() {

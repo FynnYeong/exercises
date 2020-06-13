@@ -12,12 +12,20 @@ class App extends React.Component {
     }
   }
 
+  componentDidMount(){
+    if(sessionStorage.getItem("linKey")){
+      this.setState({
+        linkKey:parseInt(sessionStorage.getItem("linKey"),10)
+      })
+    }
+  }
+
   render() {
     return (
       <Router>
         <div className="header">
-          <NavLink onClick={()=>{this.setState({linkKey:0})}} className={`a ${this.state.linkKey===0?"active2":null}`} to="/popoular">Popoular</NavLink>
-          <NavLink onClick={()=>{this.setState({linkKey:1})}} className={`a ${this.state.linkKey===1?"active2":null}`} to="/battle/0">Battle</NavLink>
+          <NavLink onClick={()=>{this.setState({linkKey:0});sessionStorage.setItem("linKey","0" )}} className={`a ${this.state.linkKey===0?"active2":null}`} to="/popoular">Popoular</NavLink>
+          <NavLink onClick={()=>{this.setState({linkKey:1});sessionStorage.setItem("linKey","1" )}} className={`a ${this.state.linkKey===1?"active2":null}`} to="/battle/0">Battle</NavLink>
         </div>
         
         {/* <Redirect path="/" to="/popoular" /> */}

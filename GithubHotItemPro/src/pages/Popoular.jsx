@@ -35,7 +35,7 @@ export default class Popoular extends React.Component {
       // console.log("a-2",scrollHeight)
       // console.log("b",this.state.btn)
       // console.log("b",this.state.page)
-      if (scrollTop + clientHeight >= scrollHeight && this.state.btn) {
+      if (scrollTop + clientHeight >= scrollHeight-5 && this.state.btn) {
         // console.log('达成');
         const { page}=this.state
         const newPage = page + 1;
