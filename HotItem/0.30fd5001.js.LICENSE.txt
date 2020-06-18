@@ -1,0 +1,47 @@
+/*! ./../../node_modules/webpack/buildin/harmony-module.js */
+
+/*! @/components/BattleAfter */
+
+/*! @/components/BattleAgo */
+
+/*! @babel/runtime/helpers/assertThisInitialized */
+
+/*! @babel/runtime/helpers/asyncToGenerator */
+
+/*! @babel/runtime/helpers/classCallCheck */
+
+/*! @babel/runtime/helpers/createClass */
+
+/*! @babel/runtime/helpers/defineProperty */
+
+/*! @babel/runtime/helpers/getPrototypeOf */
+
+/*! @babel/runtime/helpers/inherits */
+
+/*! @babel/runtime/helpers/possibleConstructorReturn */
+
+/*! @babel/runtime/regenerator */
+
+/*! @fortawesome/free-solid-svg-icons */
+
+/*! @fortawesome/react-fontawesome */
+
+/*! axios */
+
+/*! exports provided: default */
+
+/*! react */
+
+/*! react-router-dom */
+
+/*!******************************!*\
+  !*** ./src/pages/Battle.jsx ***!
+  \******************************/
+
+/*!**************************************!*\
+  !*** ./src/components/BattleAgo.jsx ***!
+  \**************************************/
+
+/*!****************************************!*\
+  !*** ./src/components/BattleAfter.jsx ***!
+  \****************************************/

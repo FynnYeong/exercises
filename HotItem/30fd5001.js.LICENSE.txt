@@ -10,14 +10,6 @@ object-assign
 
 /*! ../cancel/isCancel */
 
-/*! ../components/BattleAfter */
-
-/*! ../components/BattleAgo */
-
-/*! ../components/Content */
-
-/*! ../components/Top */
-
 /*! ../core/buildFullPath */
 
 /*! ../core/createError */
@@ -34,7 +26,7 @@ object-assign
 
 /*! ../pages/Battle */
 
-/*! ../pages/Popoular */
+/*! ../pages/Popular */
 
 /*! ../utils */
 
@@ -124,7 +116,7 @@ object-assign
 
 /*! ./index */
 
-/*! ./index.css */
+/*! ./index.less */
 
 /*! ./iterableToArray */
 
@@ -143,6 +135,10 @@ object-assign
 /*! ./unsupportedIterableToArray */
 
 /*! ./utils */
+
+/*! @/components/Content */
+
+/*! @/components/Top */
 
 /*! @babel/runtime/helpers/assertThisInitialized */
 
@@ -200,6 +196,8 @@ object-assign
 
 /*! hoist-non-react-statics */
 
+/*! import() */
+
 /*! isarray */
 
 /*! mini-create-react-context */
@@ -252,13 +250,13 @@ object-assign
   !*** ./src/index.js ***!
   \**********************/
 
-/*!***********************!*\
-  !*** ./src/index.css ***!
-  \***********************/
+/*!************************!*\
+  !*** ./src/index.less ***!
+  \************************/
 
-/*!******************************!*\
-  !*** ./src/pages/Battle.jsx ***!
-  \******************************/
+/*!*******************************!*\
+  !*** ./src/pages/Popular.jsx ***!
+  \*******************************/
 
 /*!********************************!*\
   !*** ./src/components/App.jsx ***!
@@ -266,10 +264,6 @@ object-assign
 
 /*!********************************!*\
   !*** ./src/components/Top.jsx ***!
-  \********************************/
-
-/*!********************************!*\
-  !*** ./src/pages/Popoular.jsx ***!
   \********************************/
 
 /*!***********************************!*\
@@ -292,10 +286,6 @@ object-assign
   !*** ./node_modules/react/index.js ***!
   \*************************************/
 
-/*!**************************************!*\
-  !*** ./src/components/BattleAgo.jsx ***!
-  \**************************************/
-
 /*!***************************************!*\
   !*** (webpack)/buildin/amd-define.js ***!
   \***************************************/
@@ -306,10 +296,6 @@ object-assign
 
 /*!****************************************!*\
   !*** ./node_modules/react-is/index.js ***!
-  \****************************************/
-
-/*!****************************************!*\
-  !*** ./src/components/BattleAfter.jsx ***!
   \****************************************/
 
 /*!*****************************************!*\
