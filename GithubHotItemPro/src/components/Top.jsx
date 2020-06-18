@@ -24,7 +24,7 @@ export default class Top extends React.Component {
     return (
       <div className="top">
         <ul style={{ display: 'flex', flexWrap: 'nowrap', justifyContent: 'center' }}>
-          <Router>
+          <Routdsfdsfer>dfasafasdf
             {list}
           </Router>
         </ul>
