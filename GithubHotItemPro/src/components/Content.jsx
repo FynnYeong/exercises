@@ -3,10 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faStar, faUserCircle, faExclamationTriangle, faShareAlt, faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
-// import LazyLoad from 'react-lazyload'
 
 export default class Content extends React.Component {
-  
     render() {
       const LiSyle = {
         width: '100%',
@@ -16,9 +14,6 @@ export default class Content extends React.Component {
         fontSize: '20px',
         fontWeight: 'bold',
         marginBottom: '15px',
-        // height:'4%',
-        // overflow: "hidden"
-  
       };
       const list = this.props.msg.map((item, index) => (
         <li

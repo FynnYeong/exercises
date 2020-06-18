@@ -1,69 +1,101 @@
 import React from "react"
+import axios from "axios"
 import { HashRouter as Router, Link } from 'react-router-dom'
-import BatteAfter from "../components/BattleAfter"
-import BatteAgo from "../components/BattleAgo"
+import BatteAfter from "@/components/BattleAfter"
+import BatteAgo from "@/components/BattleAgo"
+
 
 export default class Battle extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // auserName1: "",
-      // auserName2: "",
-      // auserItem1: [],
-      // auserItem2: [],
+      userName1: "",
+      userName2: "",
+      userItem1: [],
+      userItem2: [],
       openKey:0,
-      aoneKey:0,
-      atwoKey:0
+      oneKey:0,
+      twoKey:0
     }
   }
 
-  componentDidMount(){
-    this.setState({
-      openKey:parseInt(sessionStorage.getItem("openKey"),10),
-      aoneKey:parseInt(sessionStorage.getItem("oneKey"),10),
-      atwoKey:parseInt(sessionStorage.getItem("twoKey"),10),
-    })
+  async componentDidMount(){
+    if(this.props.match.params.user){
+      const arr=this.props.match.params.user.split("&")
+      await this.setState({
+        userName1: arr[0],
+        userName2: arr[1],
+        openKey:1,
+        oneKey:1,
+        twoKey:1
+      })
+      this.getNewData1();
+      this.getNewData2()
+    }
   }
   
+  getNewData1 = () => {
+    axios.get(`https://api.github.com/search/repositories?q=${this.state.userName1}&order=desc&sort=stars`)
+      .then(res => {
+        this.setState({
+          userItem1: res.data.items[0],
+        })
+      })
+      .catch(err => {
+        console.error(err);
+        // alert("API调用失败，重新刷新试试")
+      })
+  }
+
+  getNewData2 = () => {
+    axios.get(`https://api.github.com/search/repositories?q=${this.state.userName2}&order=desc&sort=stars`)
+      .then(res => {
+        this.setState({
+          userItem2: res.data.items[0],
+        })
+      })
+      .catch(err => {
+        console.error(err);
+        // alert("API调用失败，重新刷新试试")
+      })
+  }
+
   getData = (data) => {
-    const { oneKey,twoKey } = data
+    const {userName1, userName2,userItem1,userItem2,oneKey,twoKey} = data
     this.setState({
-      // auserName1: userName1,
-      // auserName2: userName2,
-      // auserItem1: userItem1,
-      // auserItem2: userItem2,userName1, userName2, userItem1, userItem2,
-      aoneKey:oneKey,
-      atwoKey:twoKey
+      userName1,
+      userName2,
+      userItem1,
+      userItem2,
+      oneKey,
+      twoKey
     })
-    // sessionStorage.setItem("oneKey",this.state.aoneKey );
-    // sessionStorage.setItem("twoKey",this.state.atwoKey );
   }
 
   openBattle = () => {
     if (this.state.openKey) {
-      sessionStorage.setItem("openKey","0" )
       this.setState({
-        openKey:0
+        openKey:0,
+        oneKey:0,
+        twoKey:0
       })
     } else {
-      sessionStorage.setItem("openKey","1" )
       this.setState({
-        openKey:1
+        openKey:1,
       })
     }
-
   }
 
   render() {
     return (
       <div className="battle">
         {this.state.openKey? (
-          <BatteAfter />
+          <BatteAfter Name1={this.state.userName1} Name2={this.state.userName2} Item1={this.state.userItem1} Item2={this.state.userItem2}   />
         ) : (
           <BatteAgo getChildData={this.getData} />
           )}
         <Router>
-          {this.state.aoneKey && this.state.atwoKey ? (<Link to={{pathname:`/battle/p/1/${this.state.auserName1}/${this.state.auserName2}`}}><h2><button type="button" onClick={this.openBattle}>BATTLE</button></h2></Link>) : null}
+          {this.state.oneKey && this.state.twoKey ? (<Link to={{pathname:this.state.openKey?`/battle`:`/battle/${this.state.userName1}&${this.state.userName2}`}}><h2><button type="button" onClick={this.openBattle}>{this.state.openKey?"GOBACK":"BATTLE"}</button></h2></Link>) : null}
         </Router>
       </div>
     )

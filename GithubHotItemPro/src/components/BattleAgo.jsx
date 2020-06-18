@@ -37,7 +37,6 @@ export default class BatteAgo extends React.Component {
 
   userSubmit = async () => {
     if (this.state.userName1 === '') {
-      alert("内容不能为空")
       return;
     }
     this.setState({
@@ -57,23 +56,11 @@ export default class BatteAgo extends React.Component {
       .catch(err => {
         console.error(err);
       })
-    const userData = this.state.userItem1
-    const uData = this.state
-    if(userData){
-      // sessionStorage.setItem("avatar_url1",userData.owner.avatar_url );
-      sessionStorage.setItem("forks_count1",userData.forks_count );
-      sessionStorage.setItem("stargazers_count1",userData.stargazers_count );
-      sessionStorage.setItem("open_issues_count1",userData.open_issues_count );
-      sessionStorage.setItem("name1",uData.userName1  );
-      sessionStorage.setItem("name13",userData.name );
-    }
-    sessionStorage.setItem("oneKey","1"  )
-    this.props.getChildData(uData)
+    this.props.getChildData(this.state)
   }
 
   twoSubmit = async () => {
     if (this.state.userName2 === '') {
-      alert("内容不能为空")
       return;
     }
     this.setState({
@@ -91,18 +78,9 @@ export default class BatteAgo extends React.Component {
       })
       .catch(err => {
         console.error(err);
+        // alert("API调用失败，重新刷新试试")
       })
-    const userData = this.state.userItem2
-    const uData = this.state
-    if(userData){
-      sessionStorage.setItem("forks_count2",userData.forks_count );
-      sessionStorage.setItem("stargazers_count2",userData.stargazers_count  );
-      sessionStorage.setItem("open_issues_count2",userData.open_issues_count );
-      sessionStorage.setItem("name2",uData.userName2 );
-      sessionStorage.setItem("name23",userData.name );
-    }
-    sessionStorage.setItem("twoKey","1" )
-    this.props.getChildData(uData)
+    this.props.getChildData(this.state)
   }
 
   selKey1 = async () => {
@@ -110,10 +88,6 @@ export default class BatteAgo extends React.Component {
       oneKey: 0,
       userName1: ""
     })
-    const userData = this.state
-    this.props.getChildData(userData)
-    sessionStorage.setItem("oneKey","0"  )
-
   }
 
   selKey2 = async () => {
@@ -121,9 +95,6 @@ export default class BatteAgo extends React.Component {
       twoKey: 0,
       userName2: ""
     })
-    const userData = this.state
-    this.props.getChildData(userData)
-    sessionStorage.setItem("twoKey","0"  )
   }
 
   render() {
@@ -160,7 +131,7 @@ export default class BatteAgo extends React.Component {
                 <h4>palyers one</h4>
                 <input type="text" placeholder="Github UserName" value={this.state.userName1} onChange={this.userChange} onKeyDown={() => { if (window.event.keyCode === 13) { this.userSubmit() } }} />
                 {/* <button type="button" onClick={this.userSubmit}>submit</button> */}
-                {this.state.userName1!==""&&this.state.bKey1?<button type="button" onClick={this.userSubmit}>submit</button>:<button type="button" disabled="disabled" style={{backgroundColor:"#e8e2ea"}}>.....</button>}
+                {this.state.userName1!==""&&this.state.bKey1?<button type="button" onClick={this.userSubmit}>submit</button>:<button type="button" disabled="disabled" style={{backgroundColor:"#6495d0"}}>Input..</button>}
                 {this.state.loadKey1? (
                   <h5 style={{ textAlign: 'center' }} className="loading"><FontAwesomeIcon icon={faSpinner} spin style={{ fontSize: '30px' }} />
                     <span className="sr-only">Loading...</span>
@@ -178,10 +149,10 @@ export default class BatteAgo extends React.Component {
               </div>
             ) : (
               <div className="input">
-                <h4>palyers one</h4>
+                <h4>palyers two</h4>
                 <input type="text" placeholder="Github UserName" value={this.state.userName2} onChange={this.userChange2} onKeyDown={() => { if (window.event.keyCode === 13) { this.twoSubmit() } }} />
                 {/* <button type="button" onClick={this.twoSubmit}>submit</button> */}
-                {this.state.userName2!==""&&this.state.bKey2?<button type="button" onClick={this.twoSubmit}>submit</button>:<button disabled="disabled" type="button" style={{backgroundColor:"#e8e2ea"}}>.....</button>}
+                {this.state.userName2!==""&&this.state.bKey2?<button type="button" onClick={this.twoSubmit}>submit</button>:<button disabled="disabled" type="button" style={{backgroundColor:"#6495d0"}}>Input..</button>}
                 {this.state.loadKey2? (
                   <h5 style={{ textAlign: 'center' }} className="loading"><FontAwesomeIcon icon={faSpinner} spin style={{ fontSize: '30px' }} />
                     <span className="sr-only">Loading...</span>
@@ -191,7 +162,6 @@ export default class BatteAgo extends React.Component {
               )}
           </div>
         </div>
-
       </main>
     )
   }

@@ -15,7 +15,7 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx', '.json'],
         alias: {
-            '@': path.resolve('./src')
+            '@': path.resolve('src')
         }
 
     },
@@ -57,12 +57,12 @@ module.exports = {
                     }
                 ]
             },
-            {
-                test: /\.(m?js|jsx)$/,
-                exclude: /node_modules/,
-                enforce: "pre",
-                use: "eslint-loader"
-            },
+            // {
+            //     test: /\.(m?js|jsx)$/,
+            //     exclude: /node_modules/,
+            //     enforce: "pre",
+            //     use: "eslint-loader"
+            // },
             {
                 test: /\.(m?js|jsx)$/,
                 exclude: /(node_modules|bower_components)/,
@@ -73,7 +73,7 @@ module.exports = {
                     //     plugins:['@babel/plugin-transform-react-jsx']
                     // }
                 }
-            }
+            },
         ]
 
     },
@@ -92,7 +92,7 @@ module.exports = {
                 minifyJS: true,
                 minifyCSS: true,
                 minifyURLs: true,
-                },
+            },
         }),
         new ExtractText('./[hash:8].css'),
         new webpack.NamedModulesPlugin(),
@@ -102,7 +102,7 @@ module.exports = {
     devServer: {
         port: 8080,
         open: true,
-        hot:true,       
+        hot: true,
         overlay: true
         // hotOnly: true
     },
