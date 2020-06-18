@@ -57,12 +57,12 @@ module.exports = {
                     }
                 ]
             },
-            // {
-            //     test: /\.(m?js|jsx)$/,
-            //     exclude: /node_modules/,
-            //     enforce: "pre",
-            //     use: "eslint-loader"
-            // },
+            {
+                test: /\.(m?js|jsx)$/,
+                exclude: /node_modules/,
+                enforce: "pre",
+                use: "eslint-loader"
+            },
             {
                 test: /\.(m?js|jsx)$/,
                 exclude: /(node_modules|bower_components)/,
