@@ -16,6 +16,7 @@ export default class Top extends React.Component {
 
   handleClick = (e) => {
     this.props.getArr(e);
+
   }
 
   render() {
