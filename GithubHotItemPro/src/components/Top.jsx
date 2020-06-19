@@ -13,10 +13,12 @@ export default class Top extends React.Component {
       { title: 'Python', src: 'q=stars:>1+language:python&sort=stars&order=desc&type=Repositories' },
     ];
   }
+
   handleClick = (e) => {
     this.props.getArr(e);
 
   }
+  
   render() {
     const list = this.toplist.map((item, index) => (<li key={index} className={`${item.src === this.props.btnkey ? 'active1' : 'no'}`} style={{ fontSize: '25px', fontWeight: 'bold', margin: ' 40px 10px 25px 10px' }}><Link to={{ pathname: `/popular/${item.src}` }} onClick={() => { this.handleClick(item.src); }}>{item.title}</Link></li>))
     return (
