@@ -27,19 +27,37 @@ export default {
         
       }
     },
-    *screenData({ payload:{data,key,i} }, { call,put }) {
-      let res=[]
+    *screenData({ payload:{data,key,i} }, {put }) {
+      let arr = [];
       if(i){
-        res = yield call(Shop.getScreen,data,key);
+        if (key) {
+          data.forEach(item => {
+            for (let i = 0; i < item.availableSizes.length; i++) {
+              if (item.availableSizes[i] === key) {
+                arr.push(item)
+              }
+            }
+          })
+        }else{
+          arr=data
+        }
       }else{
-        res = yield call(Shop.getCollate,data,key);
+        if(key==="up"){
+          arr = data.sort((a, b) => (a['price'] - b['price']))
+          // console.log("//////////!!!!!!!!!!!",arr);
+        }else if(key==="down"){
+          arr = data.sort((a, b) => (b['price'] - a['price']))
+          // console.log("//////////!!!!!!!!!!!222",arr);
+        }else{
+          arr = data.sort((a, b) => (a['id'] - b['id'] ))
+        }
       }
       // res = yield call(Shop.getCollate,data,key);
       console.log("/////////////////",res);
       
       yield put({
         type: 'setData',
-        data: [...res]
+        data: [...arr]
       })
     }
   },
