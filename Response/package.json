@@ -1,0 +1,11 @@
+{
+  "name": "response",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "sharp": "^0.23.1",
+    "gulp-responsive": "3.0.1"
+  }
+}

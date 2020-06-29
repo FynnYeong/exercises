@@ -11,7 +11,7 @@
   <title>企业站</title>
 </head>
 
-<body>
+<body id="body">
   <!-- 头部 -->
   <header id="re_header" class="navbar navbar-expand-md navbar-light" style="background-color: #c8484e;">
     <a class="navbar-brand" href="#">
@@ -47,15 +47,18 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item">
-          <img src="./img/c1.jpg" class="d-block w-100 d-md-none d-lg-none d-xl-none" alt="...">
+          <img class="lazyload d-block w-100 d-md-none d-lg-none d-xl-none" data-src="./imgs/c1-original.jpg" data-srcset="imgs/c1-540.jpg 360w,imgs/c1-900.jpg 540w" data-sizes="auto" alt="...">
+          <!-- <img class="d-block w-100 d-md-none d-lg-none d-xl-none lazyload" data-src="./img/c1.jpg"  data-srcset="imgs/c1-180.jpg 180w,imgs/c1-540.jpg 540w" data-sizes="auto" alt="..."> -->
           <div class="a1 d-none d-md-block"></div>
         </div>
         <div class="carousel-item  active">
-          <img src="./img/c2.jpg" class="d-block w-100 d-md-none d-lg-none d-xl-none" alt="...">
+          <img class="lazyload d-block w-100 d-md-none d-lg-none d-xl-none" data-src="./imgs/c2-original.jpg" data-srcset="imgs/c2-540.jpg 360w,imgs/c2-900.jpg 540w" data-sizes="auto" alt="...">
+          <!-- <img src="./img/c2.jpg" class="d-block w-100 d-md-none d-lg-none d-xl-none" alt="..."> -->
           <div class="a2 d-none d-md-block"></div>
         </div>
         <div class="carousel-item">
-          <img src="./img/c3.jpg" class="d-block w-100 d-md-none d-lg-none d-xl-none" alt="...">
+          <img class="lazyload d-block w-100 d-md-none d-lg-none d-xl-none" data-src="./imgs/c3-original.jpg" data-srcset="imgs/c3-540.jpg 360w,imgs/c3-900.jpg 540w" data-sizes="auto" alt="...">
+          <!-- <img src="./img/c3.jpg" class="d-block w-100 d-md-none d-lg-none d-xl-none" alt="..."> -->
           <div class="a3 d-none d-md-block"></div>
         </div>
         <div class="carousel-caption d-none d-md-block" style="color: #fff">
@@ -141,25 +144,28 @@
           <img src="./img/swift-logo.png" alt="" style="width: 200px;"> -->
           <h5>合作企业:</h5>
           <a href="" style="padding-top: 20px;">
-            <img class="lazyload" data-src="./img/swift-logo.png" alt="" width="45" style="margin-left:10px" data-toggle="tooltip"
-              data-placement="bottom" title="">
-            <img class="lazyload" data-src="./img/google-logo.png" alt="" width="40" style="margin-left:10px" data-toggle="tooltip"
-              data-placement="bottom" title="">
-            <img class="lazyload" data-src="./img/facebook-logo.png" alt="" width="40" style="margin-left:10px" data-toggle="tooltip"
-              data-placement="bottom" title="">
+            <img class="lazyload" data-src="./img/swift-logo.png" alt="" width="45" style="margin-left:10px"
+              data-toggle="tooltip" data-placement="bottom" title="">
+            <img class="lazyload" data-src="./img/google-logo.png" alt="" width="40" style="margin-left:10px"
+              data-toggle="tooltip" data-placement="bottom" title="">
+            <img class="lazyload" data-src="./img/facebook-logo.png" alt="" width="40" style="margin-left:10px"
+              data-toggle="tooltip" data-placement="bottom" title="">
             <!-- <img src="./img/ibm-logo.png" alt="" width="80" style="margin-left:10px" data-toggle="tooltip" data-placement="bottom" title=""> -->
-            <img class="lazyload" data-src="./img/airbnb-logo.png" alt="" width="120" style="margin-left:10px" data-toggle="tooltip"
-              data-placement="bottom" title="">
-            <img class="lazyload" data-src="./img/paypal-logo.png" alt="" width="120" style="margin-left:10px" data-toggle="tooltip"
-              data-placement="bottom" title="">
+            <img class="lazyload" data-src="./img/airbnb-logo.png" alt="" width="120" style="margin-left:10px"
+              data-toggle="tooltip" data-placement="bottom" title="">
+            <img class="lazyload" data-src="./img/paypal-logo.png" alt="" width="120" style="margin-left:10px"
+              data-toggle="tooltip" data-placement="bottom" title="">
           </a>
           <!-- <div><a href="">新闻中心</a></div> -->
         </div>
         <div class="col-md-4" style="margin:auto">
           <h5>联系我们:</h5>
-          <a href="" style="margin-left:25%;padding-top: 20px;">
-            <img class="lazyload" data-src="img/weixin.png" alt="" width="60" data-toggle="tooltip" data-placement="bottom" title="">
-            <img class="lazyload" data-src="img/xinlang.png" alt="" width="60" data-toggle="tooltip" data-placement="bottom" title="关注微博">
+          <a href="" style="margin-left:25%;padding-top: 20px;" data-toggle="modal" data-target="#exampleModal"
+            data-whatever="@ wo6666666@163.com">
+            <img class="lazyload" data-src="img/weixin.png" alt="" width="60" data-toggle="tooltip"
+              data-placement="bottom" title="">
+            <img class="lazyload" data-src="img/xinlang.png" alt="" width="60" data-toggle="tooltip"
+              data-placement="bottom" title="关注微博">
           </a>
         </div>
         <div class="col-md-4" style="padding-top: 20px;">
@@ -175,13 +181,44 @@
     <div class="b">
       版权所有@二曲
     </div>
+    <div style="color: black;" class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">联系我</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">我的通讯地址:</label>
+                <input type="text" class="form-control" id="recipient-name">
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">你想对我说的话：</label>
+                <textarea class="form-control" id="message-text"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">发送消息</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </footer>
-
+  
 </body>
 <script src="./lib/jquery.min.js"></script>
 <script src="./lib/bootstrap.min.js"></script>
 <script src="./lib/axios.js"></script>
+<script src="https://afarkas.github.io/lazysizes/plugins/bgset/ls.bgset.min.js"></script>
 <script src="./lib/lazysizes.js"></script>
 <script src="./js/index.js"></script>
+   
 
 </html>

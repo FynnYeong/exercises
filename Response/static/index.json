@@ -1,55 +1,65 @@
 {
     "hot":[
         {
-            "img":"./img/h1.jpg",
+            "img":"./imgs/h1-original.jpg",
+            "imgs":"./imgs/h1-900.jpg 920w,./imgs/h1-720.jpg 1540w",
             "text":" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从阳光明媚的春天，到浓妆艳抹的金秋，新西兰四季都是旅游者的天堂“蓝天、白云、绿草”是这个国家较吸引人的地方，满眼的绿色，触手可及的朵朵白云，仿佛置身在童话的国度。要是倾向于休闲假日，温泉、葡萄园和文化景点就正对你的胃口"
         },
         {
-            "img":"./img/h2.jpg",
+            "img":"./imgs/h2-original.jpg",
+            "imgs":"./imgs/h2-900.jpg 920w,./imgs/h2-720.jpg 1540w",
             "text":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;规划假日较难的一步，就是决定应该首先去体验哪一种精彩！如果冒险是你的玩乐重点，这里能够让你血脉喷张的刺激活动可就多了。在海上、在山间从事着较朴素、较刺激、较趣味的游乐，人和自然亲密地交融，感受大自然的恩赐"
         }
     ],
     "row1":[
         {
             "aimg":"./pages/New.html?id=0",
-            "img":"./img/m4.jpg",
+            "img":"./imgs/m4-original.jpg",
+            "imgs":"./imgs/m4-90.jpg 360w,./imgs/m4-180.jpg 720w",
             "text":"新西兰油画小镇"
         },
         {
             "aimg":"./pages/New.html?id=1",
-            "img":"./img/m2.jpg",
+            "img":"./imgs/m2-original.jpg",
+            "imgs":"./imgs/m2-90.jpg 360w,./imgs/m2-180.jpg 720w",
             "text":"希腊蓝白美"
         },
         {
             "aimg":"./pages/New.html?id=2",
-            "img":"./img/m3.jpg",
+            "img":"./imgs/m3-original.jpg",
+            "imgs":"./imgs/m3-90.jpg 360w,./imgs/m3-180.jpg 720w",
             "text":"贝加尔湖秋色"
         },
         {
             "aimg":"./pages/New.html?id=3",
-            "img":"./img/m4.jpg",
+            "img":"./imgs/m4-original.jpg",
+            "imgs":"./imgs/m4-90.jpg 360w,./imgs/m4-180.jpg 720w",
             "text":"西班牙的热情"
         }
     ],
     "row2":[
         {
             "aimg":"./pages/New.html?id=4",
-            "img":"./img/b4.jpg",
+            "img":"./imgs/b4-original.jpg",
+            "imgs":"./imgs/b4-90.jpg 360w,./imgs/b4-180.jpg 720w",
             "text":"新西兰豪华别墅"
         },
         {
             "aimg":"./pages/New.html?id=4",
-            "img":"./img/b2.png",
+            "img":"./imgs/b2-original.jpg",
+            "imgs":"./imgs/b2-90.png 360w,./imgs/b2-180.png 720w",
             "text":"希腊高端商务"
         },
         {
             "aimg":"./pages/New.html?id=1",
-            "img":"./img/b3.jpg",
+            "img":"./imgs/b3-original.jpg",
+            "imgs":"./imgs/b3-90.jpg 360w,./imgs/b3-180.jpg 720w",
             "text":"贝加尔湖阳光浴"
         },
         {
             "aimg":"./pages/New.html?id=2",
-            "img":"./img/b4.jpg",
+            "img":"./imgs/b4-original.jpg",
+            "imgs":"./imgs/b4-90.jpg 360w,./imgs/b4-180.jpg 720w",
             "text":"越南田园风光"
         }
     ]
