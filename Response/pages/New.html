@@ -70,7 +70,7 @@
         </div>
         <div class="col-md-4" style="margin:auto">
           <h5>联系我们:</h5>
-          <a href="" style="margin-left:25%;padding-top: 20px;">
+          <a href="" style="margin-left:25%;padding-top: 20px;" data-toggle="modal" data-target="#exampleModal" data-whatever="@ wo6666666@163.com">
             <img src="../img/weixin.png" alt="" width="60" data-toggle="tooltip" data-placement="bottom" title="">
             <img src="../img/xinlang.png" alt="" width="60" data-toggle="tooltip" data-placement="bottom" title="关注微博">
           </a>
@@ -87,6 +87,34 @@
     </div>
     <div class="b">
       版权所有@二曲
+    </div>
+    <div style="color: black;" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">联系我</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">我的通讯地址:</label>
+                <input type="text" class="form-control" id="recipient-name">
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">你想对我说的话：</label>
+                <textarea class="form-control" id="message-text"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">发送消息</button>
+          </div>
+        </div>
+      </div>
     </div>
   </footer>
 
