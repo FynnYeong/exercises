@@ -41,14 +41,14 @@ $('#exampleModal').on('show.bs.modal', function (event) {
     modal.find('.modal-body input').val(recipient)
 })
 $("body").click(function (e) {
-    console.log(document.documentElement.scrollTop);
+    // console.log(document.documentElement.scrollTop);
     addLink(e)
 })
 var Arr = [];
 function addLink(e) {
     var newDiv = document.createElement("div")
     newDiv.classList.add('tag')
-    newDiv.innerHTML = `<img src="../img/icon.png" width="50px" alt="">`
+    newDiv.innerHTML = `<img src="./img/icon.png" width="50px" alt="">`
     document.body.appendChild(newDiv)
     Arr.push({
         el: newDiv,
