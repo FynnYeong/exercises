@@ -1,6 +1,6 @@
 var query = window.location.search.substring(1);
 var q=Number(query.substring(3))
-axios.get("../static/new.json")
+axios.get("https://mock-api.com/9KOG2JKk.mock/new")
 .then(res => {
     console.log(res)
     var item=res.data.new

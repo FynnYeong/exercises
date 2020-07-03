@@ -53,7 +53,7 @@ export default {
         }
       }
       // res = yield call(Shop.getCollate,data,key);
-      console.log("/////////////////",res);
+      // console.log("/////////////////",res);
       
       yield put({
         type: 'setData',
