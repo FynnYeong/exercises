@@ -35,7 +35,7 @@ function aaixos(){
                       <img class="lazyload" data-src="${item2[i].img}" alt="">
                   </div>
                   <div class="b col-12 col-md-6 col-lg-8 mt-md-4 mt-lg-5">
-                      <a href="./new.html?id=${item2[i].id}">
+                      <a href="./New.html?id=${item2[i].id}">
                           <h4>${item2[i].title}</h4>
                           <h6>${item2[i].time}</h6>
                           <h6>${item2[i].synopsis}</h6>
