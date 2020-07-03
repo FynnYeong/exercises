@@ -1,4 +1,4 @@
-axios.get("./static/index.json")
+axios.get("https://mock-api.com/9KOG2JKk.mock/index")
     .then(res => {
         var hotitem = res.data.hot
         $(".hot1 p").html(hotitem[0].text)
