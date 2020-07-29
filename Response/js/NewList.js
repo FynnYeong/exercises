@@ -25,12 +25,12 @@ function iaioxs() {
     })
 }
 function aaixos(){
-  axios.get("https://mock-api.com/9KOG2JKk.mock/newlist1")
+  axios.get("https://mock-api.com/9KOG2JKk.mock/newlist")
     .then(res => {
-      var item2 = res.data.list
+      var item2 = res.data.lists
       for (var i = 0; i < item2.length; i++) {
         $(".aul").append(`
-              <li>
+              <li class="row">
                   <div class="a col-12 col-md-6 col-lg-4">
                       <img class="lazyload" data-src="${item2[i].img}" alt="">
                   </div>
