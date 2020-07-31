@@ -1,5 +1,5 @@
 function iaioxs() {
-  axios.get("https://mock-api.com/9KOG2JKk.mock/newlist")
+  axios.get("https://mock-api.com/9KOG2JKk.mock/newlist?page=1")
     .then(res => {
       var item = res.data.list
       for (var i = 0; i < item.length; i++) {
@@ -25,9 +25,9 @@ function iaioxs() {
     })
 }
 function aaixos(){
-  axios.get("https://mock-api.com/9KOG2JKk.mock/newlist")
+  axios.get("https://mock-api.com/9KOG2JKk.mock/newlist?page=2")
     .then(res => {
-      var item2 = res.data.lists
+      var item2 = res.data.list
       for (var i = 0; i < item2.length; i++) {
         $(".aul").append(`
               <li class="row">
